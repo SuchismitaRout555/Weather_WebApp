@@ -48,7 +48,7 @@ function switchTab(clickedTab){
         currentTab=clickedTab;
         currentTab.classList.add("current-tab");
 
-        if {!searchForm.classList.contains("active");
+        if (!searchForm.classList.contains("active")){
         userInfoContaier.classList.remove("active");
         grantAccessContainer.classList.remove("active");
         searchForm.classList.add("active");
