@@ -98,6 +98,7 @@ const userInfoContainer = document.querySelector(".user-info-container");
 let oldTab = userTab;
 const apikey = "7a58bebf615161dab7c2c015b3600ba9";
 oldTab.classList.add("current-tab");
+getfromSessionStorage();
 
 function switchTab(newTab) {
     if (newTab != oldTab) {
@@ -227,7 +228,7 @@ grantAccessButton.addEventListener('click', getLocation);
 const searchInput = document.querySelector("[data-searchInput]");
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let cityName = searchInput.ariaValueMax;
+    let cityName = searchInput.value;
 
     if (cityName === "")
         return;
@@ -236,7 +237,7 @@ searchForm.addEventListener("submit", (e) => {
 
 
 })
-async function fetchUserWeatherInfo(city) {
+async function fetchSearchWeatherInfo(city) {
     loadingScreen.classList.add("active");
     userInfoContainer.classList.remove("active");
     grantAccessContainer.classList.remove("active");
