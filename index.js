@@ -91,7 +91,7 @@ const searchTab = document.querySelector("[data-searchWeather]");
 const userContainer = document.querySelector(".weather-container");
 const grantAccessContainer = document.querySelector(".grant-loction-container");
 const searchForm = document.querySelector("[data-searchForm]");
-const loadingScreen = document.querySelector(".loding-container");
+const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
 
@@ -182,16 +182,17 @@ function renderWeatherInfo(weatherInfo) {
     const windspeed = document.querySelector("[data-windspeed]");
     const humidity = document.querySelector("[data-humidity]");
     const cloudness = document.querySelector("[data-cloudiness]");
+    console.log(weatherInfo);
 
     //fetch valiues from weatherinfo onjecy and put it ui elements
     cityName.innerText = weatherInfo?.name;
     countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     desc.innerText = weatherInfo?.weather?.[0]?.description;
     weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`;
-    temp.innerText = weatherInfo?.main?.temp;
-    windspeed.innerText = weatherInfo?.wind?.speed;
-    humidity.innerText = weatherInfo?.main?.humidity;
-    cloudness.innerText = weatherInfo?.clouds?.all;
+    temp.innerText = `${weatherInfo?.main?.temp} °C`;
+    windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`;
+    humidity.innerText = `${weatherInfo?.main?.humidity} %`;
+    cloudness.innerText = `${weatherInfo?.clouds?.all} %`;
 
 
 
@@ -223,7 +224,7 @@ function showPosition(position) {
 //grant Access buttom ke litener lagana padega like jab click ho tab live loaction acess kare andstore kare 
 
 const grantAccessButton = document.querySelector("[data-grantAccess]");
-grantAccessButton.addEventListener('click', getLocation);
+grantAccessButton.addEventListener("click", getLocation);
 
 const searchInput = document.querySelector("[data-searchInput]");
 searchForm.addEventListener("submit", (e) => {
